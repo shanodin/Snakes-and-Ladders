@@ -8,5 +8,4 @@ class Dice
     1 + rand(@sides)
   end
 
-
 end

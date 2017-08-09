@@ -1,20 +1,21 @@
 class Board
 
-  attr_accessor :side, :players
+  attr_accessor :tiles, :players
 
-  def initialize(side, players)
-    @side = side
+  def initialize(tiles, players)
+    @tiles = tiles
     @players = players
   end
 
-  def create_size()
-    board_size = @side * @side
-    return board_size
-  end
-
-  def tiles()
-    [*1..create_size]
-  end
+## For when 5 is inputted as side will create 25 tiled board
+  # def create_size()
+  #   board_size = @side * @side
+  #   return board_size
+  # end
+  #
+  # def tiles()
+  #   [*1..create_size]
+  # end
 
 
 end
