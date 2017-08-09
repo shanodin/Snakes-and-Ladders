@@ -1,10 +1,12 @@
 class Board
 
-  attr_accessor :tiles, :players
+  attr_accessor :tiles, :players, :ladders, :snakes
 
-  def initialize(tiles, players)
+  def initialize(tiles, players, ladders, snakes)
     @tiles = tiles
     @players = players
+    @ladders = ladders
+    @snakes = snakes
   end
 
 ## For when 5 is inputted as side will create 25 tiled board
@@ -16,6 +18,15 @@ class Board
   # def tiles()
   #   [*1..create_size]
   # end
+
+  def turn
+    @players[0].move(4)
+    if @players[0].position == 12
+      return @players[0].climb
+    elsif @players[0].position == 15
+      return @players[0].fall
+    end
+  end
 
 
 end

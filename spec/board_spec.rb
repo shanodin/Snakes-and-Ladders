@@ -10,7 +10,7 @@ class BoardTest < MiniTest::Test
   def setup
     @player1 = Player.new('Alice')
     @player2 = Player.new('Nicky')
-    @board1 = Board.new((1..25).to_a, [@player1, @player2])
+    @board1 = Board.new((1..25).to_a, [@player1, @player2], [12], [15])
     @dice = Dice.new(6)
   end
 
@@ -26,12 +26,11 @@ class BoardTest < MiniTest::Test
     assert_equal(25, @board1.tiles.count)
   end
 
-  def test_ladder_works
-
+  def test_check_position
+    @board1.turn
+    assert_equal(5, @player1.position)
   end
 
 
-
-  # def test_
 
 end

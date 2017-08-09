@@ -10,7 +10,7 @@ class PlayerTest < MiniTest::Test
   def setup
     @player1 = Player.new('Alice')
     @player2 = Player.new('Nicky')
-    @board1 = Board.new(5, [@player1, @player2])
+    @board1 = Board.new(5, [@player1, @player2], [12], [15])
     @dice = Dice.new(6)
   end
 
@@ -34,6 +34,18 @@ class PlayerTest < MiniTest::Test
     @player1.move(5)
     # assert
     assert_equal(6, @player1.position)
+  end
+
+  def test_player_climbs_ladder
+    @player1.move(11)
+    @player1.climb
+    assert_equal(17, @player1.position)
+  end
+
+  def test_player_falls
+    @player1.move(14)
+    @player1.fall
+    assert_equal(10, @player1.position)
   end
 
   def test_end_of_game

@@ -16,4 +16,17 @@ class Player
     return @position
   end
 
+  def climb()
+    return @position = @position + 5
+  end
+  #   return @position
+  # end
+
+  def fall()
+    # if @position == 15
+    return @position = @position - 5
+  end
+  # return @position
+  # end
+
 end
