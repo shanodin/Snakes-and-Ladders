@@ -12,6 +12,8 @@ class BoardTest < MiniTest::Test
     @player2 = Player.new('Nicky')
     @board1 = Board.new((1..25).to_a, [@player1, @player2], [12], [15])
     @dice = Dice.new(6)
+    @ladder = Tile.new(12, :ladder)
+    @snake = Tile.new(15, :snake)
   end
 
   # def test_board_is_correct_size
@@ -26,9 +28,9 @@ class BoardTest < MiniTest::Test
     assert_equal(25, @board1.tiles.count)
   end
 
-  def test_check_position
+  def test_play_turn
     @board1.turn
-    assert_equal(5, @player1.position)
+    assert_equal(10, @player1.position)
   end
 
 
